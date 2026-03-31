@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #3b82f6;
+}
+
+body {
+  margin: 0;
+  display: block;
+  min-height: 100vh;
+  background-color: #0f1117;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
