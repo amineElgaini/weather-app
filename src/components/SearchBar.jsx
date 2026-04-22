@@ -9,6 +9,7 @@ function cn(...inputs) {
 }
 
 export function SearchBar({ onCitySelect }) {
+
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -16,6 +17,7 @@ export function SearchBar({ onCitySelect }) {
   const wrapperRef = useRef(null);
 
   useEffect(() => {
+    
     const handleClickOutside = (event) => {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
         setIsOpen(false);
@@ -28,11 +30,13 @@ export function SearchBar({ onCitySelect }) {
   useEffect(() => {
     const delayDebounceFn = setTimeout(async () => {
       if (query.length >= 2) {
+
         setLoading(true);
         const results = await searchCity(query);
         setSuggestions(results);
         setIsOpen(true);
         setLoading(false);
+
       } else {
         setSuggestions([]);
         setIsOpen(false);
