@@ -6,6 +6,7 @@ import { getWeatherData } from './services/weatherService';
 import { CloudRain, Loader2, ThermometerSun } from 'lucide-react';
 
 function App() {
+  
   const [selectedCity, setSelectedCity] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
