@@ -24,7 +24,7 @@ export function Forecast({ daily }) {
           return (
             <div
               key={time}
-              className="bg-slate-800/30 backdrop-blur-xl border border-slate-700/30 p-4 rounded-3xl flex flex-col items-center group hover:bg-slate-700/40 transition-all cursor-default"
+              className="bg-slate-800/30 cursor-pointer backdrop-blur-xl border border-slate-700/30 p-4 rounded-3xl flex flex-col items-center group hover:bg-slate-700/40 transition-all cursor-default"
             >
               <span className="text-slate-400 text-sm font-medium mb-3">{dayName}</span>
               <div className="bg-slate-900/50 p-3 rounded-2xl mb-3 group-hover:scale-110 transition-transform">

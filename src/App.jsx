@@ -11,11 +11,16 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [bgImage, setBgImage] = useState('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?fit=crop&w=1920&q=80');
 
   const handleCitySelect = async (city) => {
     setSelectedCity(city);
     setLoading(true);
     setError(null);
+
+    // Update background image
+    const cityName = city.name.toLowerCase();
+    setBgImage(`https://loremflickr.com/1920/1080/city,${cityName}`);
 
     try {
       const data = await getWeatherData(city.latitude, city.longitude);
@@ -42,7 +47,13 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0A3D3A] text-slate-200 selection:bg-blue-500/30">
+    <div 
+      className="min-h-screen text-slate-200 selection:bg-blue-500/30 transition-all duration-1000 ease-in-out bg-cover bg-center bg-no-repeat relative"
+      style={{ backgroundImage: `url(${bgImage})` }}
+    >
+      {/* Dark Overlay for better contrast */}
+      <div className="absolute inset-0 bg-[#0A3D3A]/60 backdrop-blur-[2px] transition-colors duration-1000" />
+
       {/* Background Glows */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full animate-pulse" />
