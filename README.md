@@ -1,17 +1,54 @@
-# React + Vite
+# 🌤️ YouMeteo - Modern Weather Forecast
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+YouMeteo is a sleek, modern weather application built with React and Vite. It provides real-time weather data and a beautiful, immersive user experience with dynamic background images that change based on the city you search for.
 
-Currently, two official plugins are available:
+![Preview](https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- **🔍 Global Search**: Find weather data for any city in the world using the Open-Meteo Geocoding API.
+- **🌡️ Real-time Data**: Get current temperature, humidity, wind speed, and weather conditions.
+- **📅 7-Day Forecast**: Plan your week with a detailed 7-day weather outlook.
+- **🖼️ Dynamic Backgrounds**: Experience an immersive UI with background images that automatically update to match the selected city.
+- **📱 Fully Responsive**: Optimized for both desktop and mobile devices.
+- **🎨 Modern Design**: Beautifully crafted with Tailwind CSS, Lucide icons, and smooth animations.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework**: [React](https://reactjs.org/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Weather API**: [Open-Meteo](https://open-meteo.com/)
+- **Geocoding API**: [Open-Meteo Geocoding](https://open-meteo.com/en/docs/geocoding-api)
+- **Image Source**: [LoremFlickr](https://loremflickr.com/) / Unsplash
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# weather-app
+## 🛠️ Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/amineElgaini/weather-app.git
+   ```
+
+2. **Navigate to the project directory:**
+   ```bash
+   cd weather-app
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+4. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+Created with ❤️ by the YouMeteo Team.
