@@ -41,7 +41,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0f1117] text-slate-200 selection:bg-blue-500/30">
+    <div className="min-h-screen bg-[#0A3D3A] text-slate-200 selection:bg-blue-500/30">
       {/* Background Glows */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full animate-pulse" />
@@ -55,7 +55,7 @@ function App() {
             <ThermometerSun className="w-8 h-8 text-white" />
           </div>
           <h1 className="text-3xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-            SkyCast
+            YouMeteo
           </h1>
         </div>
 
