@@ -2,13 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { SearchBar } from './components/SearchBar';
 import { WeatherDisplay } from './components/WeatherDisplay';
 import { Forecast } from './components/Forecast';
-import { getWeatherData } from './services/weatherService';
+import { AirQualityCard } from './components/AirQualityCard';
+import { HourlyForecast } from './components/HourlyForecast';
+import { getWeatherData, getAirQualityData } from './services/weatherService';
 import { CloudRain, Loader2, ThermometerSun } from 'lucide-react';
 
 function App() {
   
   const [selectedCity, setSelectedCity] = useState(null);
   const [weatherData, setWeatherData] = useState(null);
+  const [airQualityData, setAirQualityData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [bgImage, setBgImage] = useState('https://images.unsplash.com/photo-1449034446853-66c86144b0ad?fit=crop&w=1920&q=80');
@@ -23,11 +26,19 @@ function App() {
     setBgImage(`https://loremflickr.com/1920/1080/city,${cityName}`);
 
     try {
-      const data = await getWeatherData(city.latitude, city.longitude);
-      if (data) {
-        setWeatherData(data);
+      const [wData, aqData] = await Promise.all([
+        getWeatherData(city.latitude, city.longitude),
+        getAirQualityData(city.latitude, city.longitude)
+      ]);
+
+      if (wData) {
+        setWeatherData(wData);
       } else {
         setError('Failed to fetch weather data.');
+      }
+
+      if (aqData) {
+        setAirQualityData(aqData);
       }
     } catch (err) {
       setError('An error occurred while fetching weather.');
@@ -98,7 +109,8 @@ function App() {
           ) : weatherData ? (
             <>
               <WeatherDisplay weather={weatherData} city={selectedCity} />
-              <Forecast daily={weatherData.daily} />
+              <AirQualityCard data={airQualityData} />
+              <HourlyForecast hourly={weatherData.hourly} />
             </>
           ) : (
             <div className="py-20 text-center animate-in fade-in duration-1000">

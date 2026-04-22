@@ -1,5 +1,6 @@
 const GEOCODING_API = 'https://geocoding-api.open-meteo.com/v1/search';
 const WEATHER_API = 'https://api.open-meteo.com/v1/forecast';
+const AIR_QUALITY_API = 'https://air-quality-api.open-meteo.com/v1/air-quality';
 
 export async function searchCity(name) {
   if (!name || name.length < 2) return [];
@@ -20,12 +21,30 @@ export async function getWeatherData(lat, lon) {
       longitude: lon,
       current: 'temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m',
       daily: 'weather_code,temperature_2m_max,temperature_2m_min,sunrise,sunset',
-      timezone: 'auto'
+      hourly: 'temperature_2m,weather_code',
+      timezone: 'auto',
+      forecast_days: 1
     });
     const response = await fetch(`${WEATHER_API}?${params.toString()}`);
     return await response.json();
   } catch (error) {
     console.error('Error fetching weather data:', error);
+    return null;
+  }
+}
+
+export async function getAirQualityData(lat, lon) {
+  try {
+    const params = new URLSearchParams({
+      latitude: lat,
+      longitude: lon,
+      current: 'european_aqi,pm10,pm2_5,ozone',
+      timezone: 'auto'
+    });
+    const response = await fetch(`${AIR_QUALITY_API}?${params.toString()}`);
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching air quality data:', error);
     return null;
   }
 }
