@@ -2,7 +2,6 @@
 
 YouMeteo is a sleek, modern weather application built with React and Vite. It provides real-time weather data and a beautiful, immersive user experience with dynamic background images that change based on the city you search for.
 
-![Preview](https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80)
 
 ## ✨ Features
 
